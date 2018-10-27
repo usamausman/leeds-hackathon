@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css?family=Comfortaa|Work+Sans');
+
+:root {
+  --green: #4FC188;
+  --blue: #86BFDD;
+  --black: #222;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+body * {
+  box-sizing: border-box;
+  color: var(--black);
+
+  font-family: "Work Sans";
+}
+
+header {
+  padding: 8px;
+  display: flex;
+  height: 200px;
+  justify-content: center;
+  align-items: center;
+}
+
+header img {
+  height: 100%;
+  margin-right: 40px;
+}
+
+header h1 {
+  font-size: 72px;
+  text-align: center;
+  color: var(--green);
+
+  font-family: "Comfortaa";
+}
+
+div.tag {
+  display: flex;
+  width: 100%;
+
+  justify-content: space-around;
+  align-items: center;
+
+  text-transform: uppercase;
+}
+
+div.tag h3 {
+  font-size: 48px;
+  margin: 0;
+}
+
+h3.tag1 {
+  color: var(--green);
+}
+
+h3.tag2 {
+  color: var(--blue);
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+div.actions {
+  display: flex;
+  flex: 1;
+  width: 100%;
+}
+
+div.left {
+  --base: var(--green);
+}
+
+div.right {
+  --base: var(--blue);
+}
+
+div.left, div.right {
+  background: var(--base);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+div.left h3, div.right h3 {
+  margin: 16px 0 0;
+  color: white;
+  font-size: 32px;
+}
+
+div.buttons {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+div.buttons button {
+  cursor: pointer;
+  color: white;
+  padding: 16px 64px;
+  text-transform: uppercase;
+  font-size: 24px;
+  border-radius: 8px;
+  background: none;
+  border: solid 1px white;
+
+  transition: color 0.25s ease, background 0.25s ease;
+}
+
+div.buttons button:hover {
+  color: var(--base);
+  background: white;
+}

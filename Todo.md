@@ -6,8 +6,12 @@
   - Need something simple to check basic data
 
 ## Code
-- Restart activity after biometric done
 - Sync RFID, server and fingerprint app
 - HTML pages
 - CSS
 - Figure out pseudo-random IDS
+
+# DONE
+
+## Code
+- Restart activity after biometric done
