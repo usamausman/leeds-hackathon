@@ -1,6 +1,9 @@
 # leeds-hackathon
 
-Team hack a tonne
+## Product
+![Our logo](logo96.png)
+[wisestep]
+
 
 To do:
 - Database
