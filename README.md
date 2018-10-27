@@ -1,3 +1,3 @@
 # leeds-hackathon
 
-team hack a tonne
+Team hack a tonne
