@@ -16,8 +16,7 @@ class FingerprintHandler(private val appContext: Context): FingerprintManager.Au
     fun startAuth(manager: FingerprintManager, cryptoObject: FingerprintManager.CryptoObject) {
         cancellationSignal = CancellationSignal()
 
-        if (ActivityCompat.checkSelfPermission(appContext,
-                Manifest.permission.USE_FINGERPRINT) !=
+        if (ActivityCompat.checkSelfPermission(appContext, Manifest.permission.USE_FINGERPRINT) !=
             PackageManager.PERMISSION_GRANTED) {
             return
         }
@@ -37,15 +36,6 @@ class FingerprintHandler(private val appContext: Context): FingerprintManager.Au
     }
 
     override fun onAuthenticationSucceeded(result: FingerprintManager.AuthenticationResult?) {
-        try {
-            var fingerprintField : Field = (result as Object).getClass().getDeclaredField("mFingerprint") // there are 3 fields: mCryptoObject, mFingerprint [private], mUserId
-            fingerprintField.setAccessible(true)
-            var fingerprintCopy : Object? = fingerprintField.get(result) as? Object
-            Toast.makeText(appContext, "Authentication succeeded\n$fingerprintField = $fingerprintCopy", Toast.LENGTH_LONG).show()
-        } catch(e: IllegalAccessException) {
-            Toast.makeText(appContext, "Authentication succeeded can't get it IllegalAccess", Toast.LENGTH_LONG).show()
-        } catch(e: TypeCastException) {
-            Toast.makeText(appContext, "Authentication succeeded can't get it TypeCast", Toast.LENGTH_LONG).show()
-        }
+        Toast.makeText(appContext, "Authentication succeeded", Toast.LENGTH_LONG).show()
     }
 }
