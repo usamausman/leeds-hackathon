@@ -3,7 +3,19 @@
 :root {
   --green: #4FC188;
   --blue: #86BFDD;
+  --red: #ce5959;
   --black: #222;
+}
+
+svg {
+  width: 100%;
+  height: 100%;
+  max-width: 400px;
+  max-height: 400px;
+}
+
+path {
+  transition: fill 0.25s ease;
 }
 
 body {
@@ -24,7 +36,7 @@ body * {
 header {
   padding: 8px;
   display: flex;
-  height: 200px;
+  height: 160px;
   justify-content: center;
   align-items: center;
 }
@@ -42,6 +54,8 @@ header h1 {
   font-family: "Comfortaa";
 }
 
+/* HOME PAGE */
+
 div.tag {
   display: flex;
   width: 100%;
@@ -57,11 +71,11 @@ div.tag h3 {
   margin: 0;
 }
 
-h3.tag1 {
+h3.tag.one {
   color: var(--green);
 }
 
-h3.tag2 {
+h3.tag.two {
   color: var(--blue);
 }
 
@@ -123,4 +137,53 @@ div.buttons button {
 div.buttons button:hover {
   color: var(--base);
   background: white;
+}
+
+/* VERIFICATION PAGE */
+
+div.steps {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+}
+
+div.step {
+  display: flex;
+  flex-direction: column;
+
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+div.step.disabled {
+  opacity: 0.25;
+  transform: scale(0.75);
+}
+
+.step .instructions {
+  text-align: center;
+  font-size: 32px;
+}
+
+.step path {
+  fill: #888;
+}
+
+.step.error  path {
+  fill: var(--red);
+}
+
+.step.complete  path {
+  fill: var(--green);
+}
+
+.step .check {
+  height: 40px;
+  transform: rotateZ(90deg) scale(0, 0);
+  transition: transform 0.25s ease;
+}
+
+.step.complete .check {
+  transform: none;
 }
