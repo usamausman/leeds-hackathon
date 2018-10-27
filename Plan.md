@@ -40,3 +40,10 @@ YBS: How can we improve ways to identify people so they can access services?
 ## Hour 8 - 6pm
 - Set up phpmyadmin
 - Setting up LEDs for RFID
+
+## Hour 9 - 7pm
+- Added LED support
+- Problem of IDs in stores
+
+## Hour 10 - 8pm
+- Got LEDs working with RFID checker

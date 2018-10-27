@@ -51,17 +51,19 @@ class Fingerprint : AppCompatActivity() {
         setContentView(R.layout.activity_fingerprint)
 
         if(getManagers()) {
-            generateKey()
+            while(true) {
+                generateKey()
 
-            if(cipherInit()) {
-                cipher?.let {
-                    cryptoObject = FingerprintManager.CryptoObject(it)
-                }
+                if (cipherInit()) {
+                    cipher?.let {
+                        cryptoObject = FingerprintManager.CryptoObject(it)
+                    }
 
-                var helper = FingerprintHandler(this)
+                    var helper = FingerprintHandler(this)
 
-                if(fingerprintManager != null && cryptoObject != null) {
-                    helper.startAuth(fingerprintManager!!, cryptoObject!!)
+                    if (fingerprintManager != null && cryptoObject != null) {
+                        helper.startAuth(fingerprintManager!!, cryptoObject!!)
+                    }
                 }
             }
         }
