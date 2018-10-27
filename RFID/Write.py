@@ -2,30 +2,21 @@
 # -*- coding: utf8 -*-
 
 import sys
-import pypyodbc
 sys.path.append("../MFRC522-python/")
-import RPi.GPIO as GPIO
-import MFRC522
+#import RPi.GPIO as GPIO
+#import MFRC522
 import signal
+import requests
 
-GPIO.setwarnings(False)
+#GPIO.setwarnings(False)
 
 def get_ID(name):
-    server = "localhost"
-    database = "test"
-    pwd = "1"
-    table = "tablename"
-
-    query = "Driver={{SQL Server}};Server={};Database={};uid=sa;pwd={}".format(server, database, pwd)
-
-    connection = pypyodbc.connect(query)
-    cursor = connection.cursor()
-    command = "SELECT id FROM {} WHERE name={}".format(table,name)
-    cursor.execute(command)
-    results = cursor.fetchone()
-    connection.close()
-
-    return results[0]
+    URL = "http://10.41.138.23/main.php"
+    PARAMS = {'name':name}
+    r = requests.get(url = URL, params = PARAMS)
+    print r
+    print r.json()
+    return 1#results[0]
 
 def end_read(signal,frame):
     global continue_reading
@@ -75,9 +66,12 @@ def write_id(id):
 
 
 if __name__ == "__main__":
+    get_ID("diego")
+    """
     try:
         name = sys.argv[1]
     except:
         print "[*] Usage: python Write.py username"
     #id = get_ID(name)
     write_id(280582900929277242028780444674321776422)
+    """
