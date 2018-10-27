@@ -3,7 +3,8 @@
 ## Product
 ![Our logo](logo96.png)
 [wisestep]
-
+Hex (green): #4FC188
+Hex (blue): #86BFDD
 
 To do:
 - Database
