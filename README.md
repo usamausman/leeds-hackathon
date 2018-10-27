@@ -10,11 +10,11 @@ To do:
 - Design user interface
   
 What will be on the key: 
-  - Data
-  - Name 
-  - ID
-  - Picture 
-  - Security questions
-  - Answers
-  - Fingerprint data
-  - Account Number
+- Data
+- Name 
+- ID
+- Picture 
+- Security questions
+- Answers
+- Fingerprint data
+- Account Number
