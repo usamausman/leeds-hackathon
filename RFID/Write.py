@@ -67,7 +67,6 @@ def write_id(id):
 
                 print "Sector 8 has data written on it now:"
                 MIFAREReader.MFRC522_Read(8)
-                print "\n"
 
                 MIFAREReader.MFRC522_StopCrypto1()
                 break
@@ -80,6 +79,5 @@ if __name__ == "__main__":
         name = sys.argv[1]
     except:
         print "[*] Usage: python Write.py username"
-        sys.exit(1)
-    id = get_ID(name)
-    write_id(id)
+    #id = get_ID(name)
+    write_id(280582900929277242028780444674321776422)
