@@ -8,7 +8,6 @@ import android.os.CancellationSignal
 import android.support.v4.app.ActivityCompat
 import android.util.Log
 import android.widget.Toast
-import org.apache.commons.lang3.reflect.FieldUtils
 import java.lang.reflect.Field
 
 class FingerprintHandler(private val appContext: Context): FingerprintManager.AuthenticationCallback() {
@@ -17,8 +16,7 @@ class FingerprintHandler(private val appContext: Context): FingerprintManager.Au
     fun startAuth(manager: FingerprintManager, cryptoObject: FingerprintManager.CryptoObject) {
         cancellationSignal = CancellationSignal()
 
-        if (ActivityCompat.checkSelfPermission(appContext,
-                Manifest.permission.USE_FINGERPRINT) !=
+        if (ActivityCompat.checkSelfPermission(appContext, Manifest.permission.USE_FINGERPRINT) !=
             PackageManager.PERMISSION_GRANTED) {
             return
         }
