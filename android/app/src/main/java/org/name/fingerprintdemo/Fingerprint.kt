@@ -9,6 +9,7 @@ import android.hardware.fingerprint.FingerprintManager
 
 import android.widget.Toast
 import android.Manifest
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.support.v4.app.ActivityCompat
 
@@ -25,6 +26,9 @@ import java.io.IOException
 import javax.crypto.KeyGenerator
 
 import android.security.keystore.KeyPermanentlyInvalidatedException
+import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import java.security.InvalidKeyException
 import java.security.KeyStoreException
 import java.security.UnrecoverableKeyException
@@ -51,19 +55,17 @@ class Fingerprint : AppCompatActivity() {
         setContentView(R.layout.activity_fingerprint)
 
         if(getManagers()) {
-            while(true) {
-                generateKey()
+            generateKey()
 
-                if (cipherInit()) {
-                    cipher?.let {
-                        cryptoObject = FingerprintManager.CryptoObject(it)
-                    }
+            if (cipherInit()) {
+                cipher?.let {
+                    cryptoObject = FingerprintManager.CryptoObject(it)
+                }
 
-                    var helper = FingerprintHandler(this)
+                var helper = FingerprintHandler(this)
 
-                    if (fingerprintManager != null && cryptoObject != null) {
-                        helper.startAuth(fingerprintManager!!, cryptoObject!!)
-                    }
+                if (fingerprintManager != null && cryptoObject != null) {
+                    helper.startAuth(fingerprintManager!!, cryptoObject!!)
                 }
             }
         }
@@ -160,5 +162,26 @@ cipher = Cipher.getInstance(KeyProperties.KEY_ALGORITHM_AES + "/" +
         } catch (e: InvalidKeyException) {
             throw RuntimeException("Failed to init Cipher", e)
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        Log.i("TANGENT", "Selected")
+        val id: Int = item!!.itemId
+
+        val intent = Intent()
+
+        Log.i("TANGENT", "Checking...")
+        if(id == R.id.reload) {
+            Log.i("TANGENT", "Recreating...")
+            recreate()
+            return true
+        }
+
+        return super.onOptionsItemSelected(item)
     }
 }

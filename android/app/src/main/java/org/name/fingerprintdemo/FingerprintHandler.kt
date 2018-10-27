@@ -16,8 +16,7 @@ class FingerprintHandler(private val appContext: Context): FingerprintManager.Au
     fun startAuth(manager: FingerprintManager, cryptoObject: FingerprintManager.CryptoObject) {
         cancellationSignal = CancellationSignal()
 
-        if (ActivityCompat.checkSelfPermission(appContext,
-                Manifest.permission.USE_FINGERPRINT) !=
+        if (ActivityCompat.checkSelfPermission(appContext, Manifest.permission.USE_FINGERPRINT) !=
             PackageManager.PERMISSION_GRANTED) {
             return
         }
