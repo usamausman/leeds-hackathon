@@ -26,4 +26,17 @@ YBS: How can we improve ways to identify people so they can access services?
 - Fingerprint authentication working, but can't identify specific fingerprint yet
 
 ## Hour 5 - 3pm
-- 
+- Completed design
+- Continue working on fingerprint system
+
+## Hour 6 - 4pm
+- Fingerprint system complete, but can't differentiate between fingers
+- Trying to fix RPi networking
+
+## Hour 7 - 5pm
+- Trying to install phpmyadmin on RPi
+- Working on logo design
+
+## Hour 8 - 6pm
+- Set up phpmyadmin
+- Setting up LEDs for RFID

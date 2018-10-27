@@ -8,6 +8,7 @@ import android.os.CancellationSignal
 import android.support.v4.app.ActivityCompat
 import android.util.Log
 import android.widget.Toast
+import org.apache.commons.lang3.reflect.FieldUtils
 import java.lang.reflect.Field
 
 class FingerprintHandler(private val appContext: Context): FingerprintManager.AuthenticationCallback() {
@@ -37,15 +38,6 @@ class FingerprintHandler(private val appContext: Context): FingerprintManager.Au
     }
 
     override fun onAuthenticationSucceeded(result: FingerprintManager.AuthenticationResult?) {
-        try {
-            var fingerprintField : Field = (result as Object).getClass().getDeclaredField("mFingerprint") // there are 3 fields: mCryptoObject, mFingerprint [private], mUserId
-            fingerprintField.setAccessible(true)
-            var fingerprintCopy : Object? = fingerprintField.get(result) as? Object
-            Toast.makeText(appContext, "Authentication succeeded\n$fingerprintField = $fingerprintCopy", Toast.LENGTH_LONG).show()
-        } catch(e: IllegalAccessException) {
-            Toast.makeText(appContext, "Authentication succeeded can't get it IllegalAccess", Toast.LENGTH_LONG).show()
-        } catch(e: TypeCastException) {
-            Toast.makeText(appContext, "Authentication succeeded can't get it TypeCast", Toast.LENGTH_LONG).show()
-        }
+        Toast.makeText(appContext, "Authentication succeeded", Toast.LENGTH_LONG).show()
     }
 }
