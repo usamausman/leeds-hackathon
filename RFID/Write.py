@@ -3,20 +3,19 @@
 
 import sys
 sys.path.append("../MFRC522-python/")
-#import RPi.GPIO as GPIO
-#import MFRC522
+import RPi.GPIO as GPIO
+import MFRC522
 import signal
 import requests
 
-#GPIO.setwarnings(False)
+GPIO.setwarnings(False)
 
 def get_ID(name):
-    URL = "http://10.41.138.23/main.php"
+    URL = "http://10.41.143.40/main.php"
     PARAMS = {'name':name}
     r = requests.get(url = URL, params = PARAMS)
-    print r
-    print r.json()
-    return 1#results[0]
+    print r.content
+    return r.content
 
 def end_read(signal,frame):
     global continue_reading
@@ -46,9 +45,7 @@ def write_id(id):
 
             if status == MIFAREReader.MI_OK:
 
-                hex_data = hex(id)[2:-1]
-
-                data = [int(hex_data[i:i+2],16) for i in range(0, len(hex_data), 2)]
+                data = [int(id[i:i+2],16) for i in range(0, len(id), 2)]
 
                 print "Sector 8 looked like this:"
                 MIFAREReader.MFRC522_Read(8)
@@ -66,12 +63,11 @@ def write_id(id):
 
 
 if __name__ == "__main__":
-    get_ID("diego")
     """
     try:
         name = sys.argv[1]
     except:
         print "[*] Usage: python Write.py username"
-    #id = get_ID(name)
-    write_id(280582900929277242028780444674321776422)
     """
+    id = get_ID("cosa")
+    write_id(id)
