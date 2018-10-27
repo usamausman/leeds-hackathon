@@ -9,6 +9,7 @@ $username = "phpmyadmin";
 $password = "root";
 $database = "homeless";
 
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   if (!(isset($_POST['name']) && isset($_POST['picture']) && isset($_POST['securityQuestion']) && isset($_POST['securityAnswer']) && isset($_POST['birthDate']))){die("More POST values needed");}
   $conn = mysqli_connect($servername, $username, $password, $database);
@@ -25,7 +26,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   $conn->close();
 }
-
 
 else if ($_SERVER['REQUEST_METHOD'] === 'GET') {
   if (isset($_GET["name"])){
@@ -50,12 +50,11 @@ else if ($_SERVER['REQUEST_METHOD'] === 'GET') {
   else if (isset($_GET["id"])){
     $id = $_GET["id"];
     $conn = mysqli_connect($servername, $username, $password, $database);
-    $sql = "SELECT name FROM coreData WHERE id='.$_GET["id"].'";
+    $sql = "SELECT name FROM coreData WHERE id='$id'";
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
       while($row = $result->fetch_assoc()) {
         echo $row["name"];
-        break;
       }
     }
     else {
