@@ -47,3 +47,6 @@ YBS: How can we improve ways to identify people so they can access services?
 
 ## Hour 10 - 8pm
 - Got LEDs working with RFID checker
+
+## Hour 11 - 9pm
+- Add reload option to app
