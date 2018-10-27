@@ -1,16 +1,17 @@
 <?php
-$servername = "10.41.143.40:3306";
+
+include 'functions.php';
+error_reporting(E_ALL);
+ini_set('display_errors', 'on');
+
+$servername = "localhost:3306";
 $username = "phpmyadmin";
 $password = "root";
 $database = "homeless";
 
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   if (!(isset($_POST['name']) && isset($_POST['picture']) && isset($_POST['securityQuestion']) && isset($_POST['securityAnswer']) && isset($_POST['birthDate']))){die("More POST values needed");}
   $conn = mysqli_connect($servername, $username, $password, $database);
-  if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-  }
   $name = $_POST["name"];
   $picture = $_POST["picture"];
   $sec_quests = $_POST["securityQuestion"];
@@ -25,17 +26,42 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $conn->close();
 }
 
+
 else if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-  echo $_GET["name"];
-  $name = $_GET["name"];
-  $conn = mysqli_connect($servername, $username, $password, $database);
-  if ($conn->query($sql) === TRUE) {
-    $sql = "SELECT id FROM coreData WHERE name='$name'";
-    echo "Success"
+  if (isset($_GET["name"])){
+    $name = $_GET["name"];
+    $conn = mysqli_connect($servername, $username, $password, $database);
+    $sql = "SELECT id, name FROM coreData WHERE name='$name'";
+    $result = $conn->query($sql);
+    if ($result->num_rows > 0) {
+      while($row = $result->fetch_assoc()) {
+        if ($row["id"] === ""){
+          $id = getRandomHex(16);
+          echo $id;
+          $result = $conn->query("UPDATE coreData SET id='$id' WHERE name='$name'");
+        }
+        else {
+          echo $row["id"];
+        }
+      }
+    }
+    $conn->close();
   }
-  else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+  else if (isset($_GET["id"])){
+    $id = $_GET["id"];
+    $conn = mysqli_connect($servername, $username, $password, $database);
+    $sql = "SELECT name FROM coreData WHERE id='.$_GET["id"].'";
+    $result = $conn->query($sql);
+    if ($result->num_rows > 0) {
+      while($row = $result->fetch_assoc()) {
+        echo $row["name"];
+        break;
+      }
+    }
+    else {
+      echo 0;
+    }
+    $conn->close();
   }
-  $conn->close();
 }
 ?>
