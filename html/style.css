@@ -121,7 +121,15 @@ div.buttons {
   justify-content: space-around;
 }
 
-div.buttons button {
+a {
+  display: block;
+}
+
+a button {
+  width: 100%;
+}
+
+button {
   cursor: pointer;
   color: white;
   padding: 16px 64px;
@@ -132,6 +140,21 @@ div.buttons button {
   border: solid 1px white;
 
   transition: color 0.25s ease, background 0.25s ease;
+}
+
+button.space {
+  margin: 16px;
+}
+
+button.colour {
+  color: var(--base);
+  border-color: var(--base);
+}
+
+button.colour:hover {
+  color: white;
+  background: var(--base);
+  border-color: var(--base);
 }
 
 div.buttons button:hover {

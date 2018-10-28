@@ -6,12 +6,13 @@ $password = "root";
 $database = "homeless";
 
 $conn = mysqli_connect($servername, $username, $password, $database);
-$sql = "SELECT name, accountNumber, birthDate, bankBranch FROM coreData WHERE State='3'";
+$sql = "SELECT name, accountNumber, picture, birthDate, bankBranch FROM coreData WHERE State='3'";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
   while($row = $result->fetch_assoc()) {
     $name = $row["name"];
+    $picture = $row["picture"];
     $account = $row["accountNumber"];
     $birth = $row["birthDate"];
     $bank = $row["bankBranch"];
@@ -20,6 +21,10 @@ if ($result->num_rows > 0) {
 $sql2 = "UPDATE coreData SET State = NULL, Error = '0' where State='3'";
 $conn->query($sql2);
 
+if(!isset($name)) {
+  header('Location: /');
+}
+
 $html = <<<EOL
 <!DOCTYPE html>
 <html>
@@ -27,7 +32,7 @@ $html = <<<EOL
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>[wisestep]</title>
+  <title>[wisestep] | Verification</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
 </head>
@@ -40,7 +45,10 @@ $html = <<<EOL
   <section>
     <div class="info">
       <div class="basic">
-        <img src="logo96.png" />
+        <a href="verification.html">
+          <button class="space colour" style="--base: var(--green)">Back</button>
+        </a>
+        <img src="$picture" />
         <p>$name</p>
       </div>
       <div class="data">

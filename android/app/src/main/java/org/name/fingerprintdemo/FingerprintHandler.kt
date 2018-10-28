@@ -28,16 +28,16 @@ class FingerprintHandler(private val appContext: Context): FingerprintManager.Au
     }
 
     override fun onAuthenticationError(errorCode: Int, errString: CharSequence?) {
-        Toast.makeText(appContext, "Authentication error\n$errString", Toast.LENGTH_LONG).show()
+        Toast.makeText(appContext, "Authentication error\n$errString", Toast.LENGTH_SHORT).show()
     }
 
     override fun onAuthenticationHelp(helpCode: Int, helpString: CharSequence?) {
-        Toast.makeText(appContext, "Authentication help\n$helpString", Toast.LENGTH_LONG).show()
+        Toast.makeText(appContext, "Authentication help\n$helpString", Toast.LENGTH_SHORT).show()
         val queue = Volley.newRequestQueue(appContext)
         val stringRequest = object : StringRequest(Request.Method.POST, RPI_IP,
             Response.Listener<String> {},
             Response.ErrorListener {
-                Toast.makeText(appContext, "Error", Toast.LENGTH_LONG).show()
+                Toast.makeText(appContext, "Error", Toast.LENGTH_SHORT).show()
             }) {
             override fun getParams(): Map<String, String> {
                 val params = HashMap<String, String>()
@@ -49,12 +49,12 @@ class FingerprintHandler(private val appContext: Context): FingerprintManager.Au
     }
 
     override fun onAuthenticationFailed() {
-        Toast.makeText(appContext, "Authentication failed", Toast.LENGTH_LONG).show()
+        Toast.makeText(appContext, "Authentication failed", Toast.LENGTH_SHORT).show()
         val queue = Volley.newRequestQueue(appContext)
         val stringRequest = object : StringRequest(Request.Method.POST, RPI_IP,
             Response.Listener<String> {},
             Response.ErrorListener {
-                Toast.makeText(appContext, "Error", Toast.LENGTH_LONG).show()
+                Toast.makeText(appContext, "Error", Toast.LENGTH_SHORT).show()
             }) {
             override fun getParams(): Map<String, String> {
                 val params = HashMap<String, String>()
@@ -66,12 +66,12 @@ class FingerprintHandler(private val appContext: Context): FingerprintManager.Au
     }
 
     override fun onAuthenticationSucceeded(result: FingerprintManager.AuthenticationResult?) {
-        Toast.makeText(appContext, "Authentication succeeded", Toast.LENGTH_LONG).show()
+        Toast.makeText(appContext, "Authentication succeeded", Toast.LENGTH_SHORT).show()
         val queue = Volley.newRequestQueue(appContext)
         val stringRequest = object : StringRequest(Request.Method.POST, RPI_IP,
             Response.Listener<String> {},
             Response.ErrorListener {
-                Toast.makeText(appContext, "Error", Toast.LENGTH_LONG).show()
+                Toast.makeText(appContext, "Error", Toast.LENGTH_SHORT).show()
             }) {
             override fun getParams(): Map<String, String> {
                 val params = HashMap<String, String>()

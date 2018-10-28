@@ -92,7 +92,7 @@ class Fingerprint : AppCompatActivity() {
             return false
         }
 
-        Toast.makeText(this, "All good!", Toast.LENGTH_LONG).show()
+        Toast.makeText(this, "All good!", Toast.LENGTH_SHORT).show()
         return true
     }
 
@@ -170,14 +170,9 @@ cipher = Cipher.getInstance(KeyProperties.KEY_ALGORITHM_AES + "/" +
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        Log.i("TANGENT", "Selected")
         val id: Int = item!!.itemId
 
-        val intent = Intent()
-
-        Log.i("TANGENT", "Checking...")
         if(id == R.id.reload) {
-            Log.i("TANGENT", "Recreating...")
             recreate()
             return true
         }
