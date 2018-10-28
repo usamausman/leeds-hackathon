@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>[wisestep]</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+</head>
+
+<body>
+  <header>
+    <img src="logo.svg" />
+    <h1>[wisestep]</h1>
+  </header>
+  <section>
+    <div class="register">
+      <div class="labels">
+        <label for="name">Name</label>
+        <label for="dob">Date of Birth</label>
+        <label for="bank_branch">Bank Branch</label>
+        <label for="picture">Picture</label>
+        <label for="sec_question">Security Question</label>
+        <label for="sec_answer">Answer</label>
+      </div>
+      <div class="fields">
+        <input type="text" id="name">
+        <input type="date" id="dob">
+        <input type="text" id="bank_branch">
+        <input type="file" accept="image/*" id="picture">
+        <input type="text" id="sec_question">
+        <input type="text" id="sec_answer">
+      </div>
+    </div>
+    <button class="colour space" style="--base: var(--blue)">Submit</button>
+  </section>
+</body>
+
+</html>

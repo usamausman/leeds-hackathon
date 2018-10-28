@@ -252,3 +252,33 @@ div.step.disabled {
 .data p {
   margin: 16px 0;
 }
+
+/* CREATE ACCOUNT PAGE */
+
+.register {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+}
+
+.labels, .fields {
+  display: flex;
+  flex-direction: column;
+}
+
+.labels label, .fields input {
+  margin: 8px;
+  font-size: 20px;
+}
+
+.labels label {
+  margin: 10px;
+  color: var(--green);
+  text-transform: uppercase;
+}
+
+.fields input:not([type='file']) {
+  border: none;
+  border-bottom: solid 2px var(--green);
+}
