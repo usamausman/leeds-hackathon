@@ -19,7 +19,7 @@ def get_name(id):
     PARAMS = {'id':id}
     r = requests.get(url = URL, params = PARAMS)
     print r.content
-    if r.content != 0:
+    if r.content != "0":
         return 1
     return 0
 
@@ -69,14 +69,22 @@ def read():
                 MIFAREReader.MFRC522_StopCrypto1()
                 int_data = []
                 for i in range(0, len(data)):
-                    int_data.append(str(hex(data[i]))[2:])
+                    int_data.append(str(format(data[i], '02x')))
+                    print len(int_data[i])
+                    if len(int_data[i]) == 1:
+                        print "AAAA ---- ","0" + str(data[i])
+                        data[i] = "0" + str(data[i])
+                    elif len(int_data[i]) == 0:
+                        data[i] = "00"
+                print int_data
                 id = "".join(int_data)
+                print id
                 name_found = get_name(id)
                 if name_found == 1:
-                    light(1)
-                    time.sleep(8)
+                    light(0)
+                    time.sleep(2)
                 else:
-                   light(0)
+                   light(1)
                    time.sleep(2)
             else:
                 print "Authentication error"
