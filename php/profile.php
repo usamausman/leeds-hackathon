@@ -27,7 +27,7 @@ $html = <<<EOL
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>[wisestep]</title>
+  <title>[wisestep] | Verification</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
 </head>
@@ -40,6 +40,9 @@ $html = <<<EOL
   <section>
     <div class="info">
       <div class="basic">
+        <a href="verification.html">
+          <button class="colour" style="--base: var(--green)">Back</button>
+        </a>
         <img src="logo96.png" />
         <p>$name</p>
       </div>

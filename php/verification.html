@@ -21,9 +21,9 @@
       <div class="step one">
         <p class="instructions">Scan tag</p>
         <svg class="check" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 800 800">
-            <circle style="fill: var(--green)" cx="400" cy="400" r="400" />
-            <rect style="fill: white" width="260" height="80" rx="40" transform="translate(187.868 384.284) rotate(45)" />
-            <rect style="fill: white" width="500" height="80" rx="40" transform="translate(668.701 271.147) rotate(135)" />
+          <circle style="fill: var(--green)" cx="400" cy="400" r="400" />
+          <rect style="fill: white" width="260" height="80" rx="40" transform="translate(187.868 384.284) rotate(45)" />
+          <rect style="fill: white" width="500" height="80" rx="40" transform="translate(668.701 271.147) rotate(135)" />
         </svg>
       </div>
       <div class="step two disabled">
@@ -33,6 +33,33 @@
       </div>
     </div>
   </section>
+  <script>
+    if (typeof (EventSource) !== "undefined") {
+      let source = new EventSource("updates.php")
+      source.onmessage = function (event) {
+        let status = event.data[0]
+        let error
+        if (event.data.length == 2) {
+          error = event.data[1]
+        }
+        if (status == 2) {
+          if (error > 0) {
+            document.querySelector(".step.two").className = "step two error"
+          }
+          else {
+            document.querySelector(".step.one").className = "step one complete"
+            document.querySelector(".step.two").className = "step two"
+          }
+        }
+        else if (status == 3) {
+          document.querySelector(".step.two").className = "step two complete"
+          setTimeout(function () { window.location.href = "profile.php" }, 1000)
+        }
+      }
+    } else {
+      console.log("Sorry, your browser does not support server-sent events...")
+    }
+  </script>
 </body>
 
 </html>
