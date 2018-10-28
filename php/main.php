@@ -25,16 +25,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     die("Finger data successfully added");
   }
-  if (!(isset($_POST['name']) && isset($_POST['picture']) && isset($_POST['securityQuestion']) && isset($_POST['securityAnswer']) && isset($_POST['birthDate']))){die("More POST values needed");}
+  if (!(isset($_POST['name']) && isset($_POST['picture']) && isset($_POST['securityQuestion']) && isset($_POST['securityAnswer']) && isset($_POST['birthDate']) && isset($_POST['bankBranch']))){die("More POST values needed");}
   $conn = mysqli_connect($servername, $username, $password, $database);
   $name = $_POST["name"];
   $picture = $_POST["picture"];
   $sec_quests = $_POST["securityQuestion"];
   $answers = $_POST["securityAnswer"];
   $birth = $_POST["birthDate"];
+  $bank = $_POST["bankBranch"];
 
   $sql = "INSERT INTO coreData (name, picture, securityQuestion,  securityAnswer, birthDate)
-  VALUES ('$name', '$picture', '$sec_quests' , '$answers', '$birth')";
+  VALUES ('$name', '$picture', '$sec_quests' , '$answers', '$birth', '$bank')";
 
   $conn->query($sql);
 
