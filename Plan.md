@@ -52,3 +52,25 @@ YBS: How can we improve ways to identify people so they can access services?
 - Add reload option to app
 
 ## Hour 12 - 10pm
+- Worked on homepage
+- Traffic lights
+- Getting RFID system to work
+
+## Hour 13 - 11pm
+- Worked on verification page
+- Learning PHP
+
+## Hour 14 - 12am
+- Finished verification page
+- Got RFID cards to work
+
+## Hour 15 - 1am
+- Use WebSockets to handle inter-computer communications
+
+## Hour 16 - 1am (again)
+- Using POST requests from Android app
+- Working out server-client communication
+
+## Hour 17 - 2am
+- Starting server-client communication
+- 
