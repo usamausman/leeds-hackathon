@@ -46,7 +46,7 @@ $html = <<<EOL
     <div class="info">
       <div class="basic">
         <a href="verification.html">
-          <button class="colour" style="--base: var(--green)">Back</button>
+          <button class="space colour" style="--base: var(--green)">Back</button>
         </a>
         <img src="$picture" />
         <p>$name</p>
