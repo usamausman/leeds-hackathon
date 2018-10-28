@@ -1,0 +1,250 @@
+@import url('https://fonts.googleapis.com/css?family=Comfortaa|Work+Sans');
+
+:root {
+  --green: #4FC188;
+  --blue: #86BFDD;
+  --red: #ce5959;
+  --black: #222;
+}
+
+svg {
+  width: 100%;
+  height: 100%;
+  max-width: 400px;
+  max-height: 400px;
+}
+
+path {
+  transition: fill 0.25s ease;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+body * {
+  box-sizing: border-box;
+  color: var(--black);
+
+  font-family: "Work Sans";
+}
+
+header {
+  padding: 8px;
+  display: flex;
+  height: 160px;
+  justify-content: center;
+  align-items: center;
+}
+
+header img {
+  height: 100%;
+  margin-right: 40px;
+}
+
+header h1 {
+  font-size: 72px;
+  text-align: center;
+  color: var(--green);
+
+  font-family: "Comfortaa";
+}
+
+/* HOME PAGE */
+
+div.tag {
+  display: flex;
+  width: 100%;
+
+  justify-content: space-around;
+  align-items: center;
+
+  text-transform: uppercase;
+}
+
+div.tag h3 {
+  font-size: 48px;
+  margin: 0;
+}
+
+h3.tag.one {
+  color: var(--green);
+}
+
+h3.tag.two {
+  color: var(--blue);
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+div.actions {
+  display: flex;
+  flex: 1;
+  width: 100%;
+}
+
+div.left {
+  --base: var(--green);
+}
+
+div.right {
+  --base: var(--blue);
+}
+
+div.left, div.right {
+  background: var(--base);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+div.left h3, div.right h3 {
+  margin: 16px 0 0;
+  color: white;
+  font-size: 32px;
+}
+
+div.buttons {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+a {
+  display: block;
+}
+
+a button {
+  width: 100%;
+}
+
+button {
+  cursor: pointer;
+  color: white;
+  padding: 16px 64px;
+  text-transform: uppercase;
+  font-size: 24px;
+  border-radius: 8px;
+  background: none;
+  border: solid 1px white;
+
+  transition: color 0.25s ease, background 0.25s ease;
+}
+
+button.colour {
+  color: var(--base);
+  border-color: var(--base);
+}
+
+button.colour:hover {
+  color: white;
+  background: var(--base);
+  border-color: var(--base);
+}
+
+div.buttons button:hover {
+  color: var(--base);
+  background: white;
+}
+
+/* VERIFICATION PAGE */
+
+div.steps {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+}
+
+div.step {
+  display: flex;
+  flex-direction: column;
+
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+div.step.disabled {
+  opacity: 0.25;
+  transform: scale(0.75);
+}
+
+.step .instructions {
+  text-align: center;
+  font-size: 32px;
+}
+
+.step path {
+  fill: #888;
+}
+
+.step.error  path {
+  fill: var(--red);
+}
+
+.step.complete  path {
+  fill: var(--green);
+}
+
+.step .check {
+  height: 40px;
+  transform: rotateZ(90deg) scale(0, 0);
+  transition: transform 0.25s ease;
+}
+
+.step.complete .check {
+  transform: none;
+}
+
+/* INFO PAGE */
+
+.info {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+}
+
+.basic {
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  margin-right: 16px;
+}
+
+.basic img {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+}
+
+.basic p {
+  font-size: 32px;
+}
+
+.data {
+  display: flex;
+  font-size: 20px;
+}
+
+.data div {
+  margin: 0 16px;
+}
+
+.data p {
+  margin: 16px 0;
+}
