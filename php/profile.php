@@ -21,6 +21,10 @@ if ($result->num_rows > 0) {
 $sql2 = "UPDATE coreData SET State = NULL, Error = '0' where State='3'";
 $conn->query($sql2);
 
+if(!isset($name)) {
+  header('Location: /');
+}
+
 $html = <<<EOL
 <!DOCTYPE html>
 <html>
