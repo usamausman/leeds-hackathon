@@ -187,3 +187,37 @@ div.step.disabled {
 .step.complete .check {
   transform: none;
 }
+
+/* INFO PAGE */
+
+.info {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+}
+
+.basic {
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.basic img {
+  border-radius: 50%;
+}
+
+.basic p {
+  font-size: 32px;
+}
+
+.data {
+  display: flex;
+  font-size: 20px;
+}
+
+.keys {
+  padding: 0 16px;
+}
