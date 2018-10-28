@@ -6,12 +6,13 @@ $password = "root";
 $database = "homeless";
 
 $conn = mysqli_connect($servername, $username, $password, $database);
-$sql = "SELECT name, accountNumber, birthDate, bankBranch FROM coreData WHERE State='3'";
+$sql = "SELECT name, accountNumber, picture, birthDate, bankBranch FROM coreData WHERE State='3'";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
   while($row = $result->fetch_assoc()) {
     $name = $row["name"];
+    $picture = $row["picture"];
     $account = $row["accountNumber"];
     $birth = $row["birthDate"];
     $bank = $row["bankBranch"];
@@ -43,7 +44,7 @@ $html = <<<EOL
         <a href="verification.html">
           <button class="colour" style="--base: var(--green)">Back</button>
         </a>
-        <img src="logo96.png" />
+        <img src="$picture" />
         <p>$name</p>
       </div>
       <div class="data">
