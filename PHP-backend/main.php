@@ -11,6 +11,20 @@ $database = "homeless";
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  if (isset($_POST['finger_status'])){
+    $status = $_POST['finger_status'];
+    if ($status === "success"){
+      $conn = mysqli_connect($servername, $username, $password, $database);
+      $sql = "UPDATE coreData SET state='3' WHERE State='2'";
+      $conn->query($sql);
+    }
+    else if ($status == "failure"){
+      $conn = mysqli_connect($servername, $username, $password, $database);
+      $sql = "UPDATE coreData SET Error=Error + 1 WHERE State='2'";
+      $conn->query($sql);
+    }
+    die("Finger data successfully added");
+  }
   if (!(isset($_POST['name']) && isset($_POST['picture']) && isset($_POST['securityQuestion']) && isset($_POST['securityAnswer']) && isset($_POST['birthDate']))){die("More POST values needed");}
   $conn = mysqli_connect($servername, $username, $password, $database);
   $name = $_POST["name"];
@@ -55,6 +69,9 @@ else if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     if ($result->num_rows > 0) {
       while($row = $result->fetch_assoc()) {
         echo $row["name"];
+        $conn = mysqli_connect($servername, $username, $password, $database);
+        $sql = "UPDATE coreData SET state='2' WHERE id='$id'";
+        $conn->query($sql);
       }
     }
     else {
