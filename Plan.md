@@ -73,4 +73,14 @@ YBS: How can we improve ways to identify people so they can access services?
 
 ## Hour 17 - 2am
 - Starting server-client communication
-- 
+
+## Hour 18 - 3am
+- First working prototype
+
+## Hour 19 - 4am
+- Sleep
+
+## Hour 20 - 5am
+- Sleep
+
+## Hour 21 - 6am
