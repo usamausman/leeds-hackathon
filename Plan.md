@@ -70,3 +70,7 @@ YBS: How can we improve ways to identify people so they can access services?
 ## Hour 16 - 1am (again)
 - Using POST requests from Android app
 - Working out server-client communication
+
+## Hour 17 - 2am
+- Starting server-client communication
+- 
