@@ -1,7 +1,7 @@
 # leeds-hackathon
 
 ## Product
-![Our logo](logo96.png)
+![Our logo](html/logo96.png)
 [wisestep]
 Hex (green): #4FC188
 Hex (blue): #86BFDD
