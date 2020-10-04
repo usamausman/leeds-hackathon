@@ -1,12 +1,8 @@
-# WiseStep
-
-## Product
-
 <h1 align="center">
   <br>
-  <img src="https://github.com/usamausman/leeds-hackathon/blob/master/html/logo96.png" alt="Logo" width="30%">
+  <img src="https://github.com/usamausman/leeds-hackathon/blob/master/html/logo96.png" alt="Logo" width="20%">
   <br>
-  LFIntruder
+  WiseStep
   <br>
 </h1>
 
