@@ -1,5 +1,4 @@
 <?php
-
 $servername = "localhost:3306";
 $username = "phpmyadmin";
 $password = "root";
@@ -9,20 +8,22 @@ $conn = mysqli_connect($servername, $username, $password, $database);
 $sql = "SELECT name, accountNumber, picture, birthDate, bankBranch FROM coreData WHERE State='3'";
 $result = $conn->query($sql);
 
-if ($result->num_rows > 0) {
-  while($row = $result->fetch_assoc()) {
-    $name = $row["name"];
-    $picture = $row["picture"];
-    $account = $row["accountNumber"];
-    $birth = $row["birthDate"];
-    $bank = $row["bankBranch"];
-    break;
-}}
+if ($result->num_rows > 0){
+    while ($row = $result->fetch_assoc()){
+
+        $name = $row["name"];
+        $picture = $row["picture"];
+        $account = $row["accountNumber"];
+        $birth = $row["birthDate"];
+        $bank = $row["bankBranch"];
+        break;
+    }
+}
 $sql2 = "UPDATE coreData SET State = NULL, Error = '0' where State='3'";
 $conn->query($sql2);
 
-if(!isset($name)) {
-  header('Location: /');
+if (!isset($name)){
+    header('Location: /');
 }
 
 $html = <<<EOL
