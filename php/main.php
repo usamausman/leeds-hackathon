@@ -14,12 +14,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
 
     if (isset($_POST['finger_status'])){
 
-        $status = $_POST['finger_status'];
+        $status = strtolower($_POST['finger_status']);
 
         if ($status === "success"){
             $sql = "UPDATE coreData SET state='3' WHERE State='2'";
         }
-        else if ($status == "failure"){
+        else {
             $sql = "UPDATE coreData SET Error=Error + 1 WHERE State='2'";
         }
         $conn->query($sql);
